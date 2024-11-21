@@ -28,3 +28,6 @@ cards.forEach((card: HTMLDivElement) => {
         cardChild.classList.toggle('hide__card');
     })
 })
+
+
+ 

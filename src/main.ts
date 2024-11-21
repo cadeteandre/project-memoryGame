@@ -19,3 +19,6 @@ cards.forEach((card: HTMLDivElement) => {
     card.addEventListener('click', () => {
     })
 })
+
+
+ 

@@ -7,10 +7,8 @@ const cards = document.querySelectorAll('.card') as NodeListOf<HTMLDivElement>;
 const card = document.querySelector('.card') as HTMLDivElement;
 
 const emojiArr: string[] = ['🥳', '😍', '😃', '😡', '🤢', '🥶', '😎', '😴', '🤕', '🤠', '🤣', '😱'];
-
-card.innerHTML =`<div class="emoji">${emojiArr[0]}</div>`;
-const cardChild = card.firstElementChild as HTMLDivElement;
-cardChild.style.display = 'none';
+let cardsToCompare: HTMLDivElement[] = [];
+let guessCounter: number = 0;
 
 for(let i: number = 0; i < cards.length; i++) {
     if(i >= emojiArr.length) {
@@ -22,10 +20,32 @@ for(let i: number = 0; i < cards.length; i++) {
     cardChild.classList.add('hide__card');
 }
 
+//* --------------- Declaring functions ---------------
+function compareCards(cardsArr: HTMLDivElement[]): boolean {
+    return cardsArr[0].textContent === cardsArr[1].textContent ? true : false;
+}
+
 cards.forEach((card: HTMLDivElement) => {
     card.addEventListener('click', () => {
-        const cardChild = card.firstElementChild as HTMLDivElement;
-        cardChild.classList.toggle('hide__card');
+        if(guessCounter < 2) {
+            const cardChild = card.firstElementChild as HTMLDivElement;
+            cardChild.classList.toggle('hide__card');
+            cardsToCompare.push(cardChild);
+            guessCounter++;
+            if(guessCounter === 2) {
+                setTimeout(() => {
+                    const compareResult: boolean = compareCards(cardsToCompare);
+                if(compareResult) {
+                    cardsToCompare = [];
+                    guessCounter = 0;
+                } else {
+                    cardsToCompare.forEach((card) => card.classList.toggle('hide__card'));
+                    cardsToCompare = [];
+                    guessCounter = 0;
+                }
+                }, 1000)
+            }
+        }
     })
 })
 

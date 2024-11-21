@@ -1,7 +1,5 @@
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
+  margin: 0;  display: flex;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -11,4 +9,35 @@ body {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  width: 50vw;
+}
+
+
+#playground {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  max-width: 835px;
+  min-width: 463px;
+  border: 2px solid #000;
+  padding: 20px;
+}
+
+.card {
+  width: 100px;
+  height: 100px;
+  background-color: aquamarine;
+  border: 1px solid red;
 }

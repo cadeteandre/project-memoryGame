@@ -5,14 +5,11 @@ const pairsClicked = document.querySelector('#pairsClicked') as HTMLParagraphEle
 const pairsGuessed = document.querySelector('#pairsGuessed') as HTMLParagraphElement;
 const cards = document.querySelectorAll('.card') as NodeListOf<HTMLDivElement>;
 const card = document.querySelector('.card') as HTMLDivElement;
-let cardsToCompare: HTMLDivElement[] = [];
-let guessCounter: number = 0;
 
 const emojiArr: string[] = ['🥳', '😍', '😃', '😡', '🤢', '🥶', '😎', '😴', '🤕', '🤠', '🤣', '😱'];
 
-card.innerHTML =`<div class="emoji">${emojiArr[0]}</div>`;
-const cardChild = card.firstElementChild as HTMLDivElement;
-cardChild.style.display = 'none';
+let cardsToCompare: HTMLDivElement[] = [];
+let guessCounter: number = 0;
 
 for(let i: number = 0; i < cards.length; i++) {
     if(i >= emojiArr.length) {
@@ -28,6 +25,39 @@ for(let i: number = 0; i < cards.length; i++) {
 function compareCards(cardsArr: HTMLDivElement[]): boolean {
     return cardsArr[0].textContent === cardsArr[1].textContent ? true : false;
 }
+
+// function shuffleAllCards(arr: string[]): string[] {
+//     const emojiRandom = arr[Math.floor(Math.random()* arr.length)]
+//     console.log(emojiRandom);
+//     const emojiRandomArr = (arr: string[]): string[] => {
+//         return arr.toSorted
+//     })
+
+// }
+// shuffleAllCards(emojiArr);
+
+
+// function shuffleAllCards(arr: string[]): string[] {
+//     const emojiRandom = arr[Math.floor(Math.random()* arr.length)]
+//     console.log(emojiRandom);
+//     const emojiRandomArr = arr.map((emoji: string, index) => {
+//         return arr[Math.floor(Math.random()* arr.length)];
+//     })
+//     console.log(emojiRandomArr);
+    
+// }
+// shuffleAllCards(emojiArr);
+
+function shuffleAllCards(arr: string[]): string[] {
+    const doubleEmojiArr = arr.concat(arr);
+    for (let i = doubleEmojiArr.length - 1; i > 0; i--) {
+        const arrNum = Math.floor(Math.random()* (i+1));
+        [doubleEmojiArr[i], doubleEmojiArr[arrNum]] = [doubleEmojiArr[arrNum], doubleEmojiArr[i]]
+    } 
+    return doubleEmojiArr;    
+}
+console.log(shuffleAllCards(emojiArr));
+
 
 cards.forEach((card: HTMLDivElement) => {
     card.addEventListener('click', () => {

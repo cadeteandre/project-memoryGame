@@ -42,11 +42,11 @@ Neu erlernte Fähigkeite in HTML, CSS und Typescript konnten hier umgesetzt werd
 
 Dieses Spiel lässt sich auf Design-Ebene weiter ausbauen, und insbesondere in Bezug auf die Funktionen des Spiels lässt sich noch mehr aus diesem Spiel herausholen.
 
-# Einblick in den Workflow
+## Einblick in den Workflow
 
 ![screenshot](./src/assets/img/memory-game-flowchart.png)
 
-# Ein Blick ins Spiel
+## Ein Blick ins Spiel
 
 ![screenshot](./src/assets/img/screenshot-memo-game.png)
 
@@ -94,10 +94,10 @@ Newly learned skills in HTML, CSS and Typescript could be implemented here.
 
 This game can be further expanded on a design level, and more can be achieved from this game, especially in terms of the game's features.
 
-# Insight into the Workflow
+## Insight into the Workflow
 
 ![screenshot](./src/assets/img/memory-game-flowchart.png)
 
-# A look into the game
+## A look into the game
 
 ![screenshot](./src/assets/img/screenshot-memo-game.png)

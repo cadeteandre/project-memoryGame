@@ -1,6 +1,7 @@
 import './style.css'
 
 //* --------------- Selecting HTML elements ---------------
+const scoreboard = document.querySelector('.scoreboard') as HTMLDivElement;
 const pairsClicked = document.querySelector('#pairsClicked') as HTMLParagraphElement;
 const pairsGuessed = document.querySelector('#pairsGuessed') as HTMLParagraphElement;
 const cards = document.querySelectorAll('.card') as NodeListOf<HTMLDivElement>;
@@ -40,12 +41,26 @@ function compareCards(cardsArr: HTMLDivElement[]): boolean {
 function displayScoreboard(pairGuessed: boolean): void {
     if(pairGuessed) {
         pairsGuessedCounter++;
+        if(pairsGuessedCounter === 1) {
+            scoreboard.style.flexDirection = 'column';
+            scoreboard.style.alignItems = 'center';
+            scoreboard.innerHTML = `
+            <h3>Congratulations, you won!</h3>
+            <p>Attempts: ${pairsClicledCounter}</p>
+            `;
+            const button = document.createElement('button') as HTMLButtonElement;
+            button.textContent = 'Play again!';
+            button.classList.add('restart__btn');
+            button.addEventListener('click', () => location.reload());
+            scoreboard.appendChild(button);
+        }
     } else {
         pairsClicledCounter++;
     }
     pairsClicked.textContent = `Pairs clicked: ${pairsClicledCounter}`;
     pairsGuessed.textContent = `Pairs guessed: ${pairsGuessedCounter}`;
 }
+// displayScoreboard(true);
 
 //* --------------- Button click events ---------------
 cards.forEach((card: HTMLDivElement) => {

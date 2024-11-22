@@ -33,7 +33,6 @@ function shuffleAllCards(arr: string[]): string[] {
     return doubleEmojiArr;    
 }
 
-// --------Button click event-----------
 function compareCards(cardsArr: HTMLDivElement[]): boolean {
     return cardsArr[0].textContent === cardsArr[1].textContent ? true : false;
 }
@@ -41,7 +40,7 @@ function compareCards(cardsArr: HTMLDivElement[]): boolean {
 function displayScoreboard(pairGuessed: boolean): void {
     if(pairGuessed) {
         pairsGuessedCounter++;
-        if(pairsGuessedCounter === 1) {
+        if(pairsGuessedCounter === 12) {
             scoreboard.style.flexDirection = 'column';
             scoreboard.style.alignItems = 'center';
             scoreboard.innerHTML = `
@@ -60,7 +59,6 @@ function displayScoreboard(pairGuessed: boolean): void {
     pairsClicked.textContent = `Pairs clicked: ${pairsClicledCounter}`;
     pairsGuessed.textContent = `Pairs guessed: ${pairsGuessedCounter}`;
 }
-// displayScoreboard(true);
 
 //* --------------- Button click events ---------------
 cards.forEach((card: HTMLDivElement) => {

@@ -34,6 +34,10 @@ header {
   border-radius: 20px; 
   padding: 10px 40px 10px 30;
   margin-bottom: 20px;
+  padding: 10px;
+  box-shadow: 0 0 10px 5px rgba(17, 16, 16, 0.5);
+  /* background: linear-gradient(to bottom, #87ceeb, #fff) no-repeat; */
+  background-color: #fff;
 }
 
 h1 {
@@ -81,4 +85,10 @@ h1 {
 
 .hide__card {
   display: none;
+}
+
+.restart__btn {
+  background-color: yellow;
+  border-radius: 10px;
+  padding: 10px;
 }

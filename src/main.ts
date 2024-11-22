@@ -4,14 +4,16 @@ import './style.css'
 const pairsClicked = document.querySelector('#pairsClicked') as HTMLParagraphElement;
 const pairsGuessed = document.querySelector('#pairsGuessed') as HTMLParagraphElement;
 const cards = document.querySelectorAll('.card') as NodeListOf<HTMLDivElement>;
-const card = document.querySelector('.card') as HTMLDivElement;
 
 const emojiArr: string[] = ['🥳', '😍', '😃', '😡', '🤢', '🥶', '😎', '😴', '🤕', '🤠', '🤣', '😱'];
 
+//* --------------- Declaring control variables ---------------
 let cardsToCompare: HTMLDivElement[] = [];
 let guessCounter: number = 0;
+let pairsClicledCounter: number = 0;
+let pairsGuessedCounter: number = 0;
 
-// mixing the emojis
+//* --------------- Mixing the emojis ---------------
 const shuffledArr = shuffleAllCards(emojiArr);
 for(let i: number = 0; i < shuffledArr.length; i++) {
     cards[i].innerHTML = `<div class="emoji">${shuffledArr[i]}</div>`;
@@ -20,21 +22,15 @@ for(let i: number = 0; i < shuffledArr.length; i++) {
 }
 
 //* --------------- Declaring functions ---------------
-function compareCards(cardsArr: HTMLDivElement[]): boolean {
-    return cardsArr[0].textContent === cardsArr[1].textContent ? true : false;
-}
-
 function shuffleAllCards(arr: string[]): string[] {
     const doubleEmojiArr = arr.concat(arr);
     for (let i = doubleEmojiArr.length - 1; i > 0; i--) {
         const arrNum = Math.floor(Math.random()* (i+1));
-        [doubleEmojiArr[i], doubleEmojiArr[arrNum]] = [doubleEmojiArr[arrNum], doubleEmojiArr[i]]
+        [doubleEmojiArr[i], doubleEmojiArr[arrNum]] = [doubleEmojiArr[arrNum], doubleEmojiArr[i]];
     } 
 
     return doubleEmojiArr;    
 }
-// console.log(shuffleAllCards(emojiArr));
-
 
 function displayScoreboard(pairGuessed: boolean): void {
     if pairsClickedCounter++;
@@ -42,9 +38,22 @@ function displayScoreboard(pairGuessed: boolean): void {
 
 }
 
-
-
 // --------Button click event-----------
+function compareCards(cardsArr: HTMLDivElement[]): boolean {
+    return cardsArr[0].textContent === cardsArr[1].textContent ? true : false;
+}
+
+function displayScoreboard(pairGuessed: boolean): void {
+    if(pairGuessed) {
+        pairsGuessedCounter++;
+    } else {
+        pairsClicledCounter++;
+    }
+    pairsClicked.textContent = `Pairs clicked: ${pairsClicledCounter}`;
+    pairsGuessed.textContent = `Pairs guessed: ${pairsGuessedCounter}`;
+}
+
+//* --------------- Button click events ---------------
 cards.forEach((card: HTMLDivElement) => {
     card.addEventListener('click', () => {
         if(guessCounter < 2) {
@@ -53,17 +62,19 @@ cards.forEach((card: HTMLDivElement) => {
             cardsToCompare.push(cardChild);
             guessCounter++;
             if(guessCounter === 2) {
-                setTimeout(() => {
-                    const compareResult: boolean = compareCards(cardsToCompare);
+                const compareResult: boolean = compareCards(cardsToCompare);
                 if(compareResult) {
+                    displayScoreboard(true);
                     cardsToCompare = [];
                     guessCounter = 0;
                 } else {
-                    cardsToCompare.forEach((card) => card.classList.toggle('hide__card'));
-                    cardsToCompare = [];
-                    guessCounter = 0;
+                    displayScoreboard(false);
+                    setTimeout(() => {
+                        cardsToCompare.forEach((card) => card.classList.toggle('hide__card'));
+                        cardsToCompare = [];
+                        guessCounter = 0;
+                    }, 1000)
                 }
-                }, 1000)
             }
         }
     })

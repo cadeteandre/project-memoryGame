@@ -40,6 +40,7 @@ function compareCards(cardsArr: HTMLDivElement[]): boolean {
 function displayScoreboard(pairGuessed: boolean): void {
     if(pairGuessed) {
         pairsGuessedCounter++;
+        if(pairs)
     } else {
         pairsClicledCounter++;
     }

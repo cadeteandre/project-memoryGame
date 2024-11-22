@@ -32,12 +32,6 @@ function shuffleAllCards(arr: string[]): string[] {
     return doubleEmojiArr;    
 }
 
-function displayScoreboard(pairGuessed: boolean): void {
-    if pairsClickedCounter++;
-    pairsClicked.textContent = 
-
-}
-
 // --------Button click event-----------
 function compareCards(cardsArr: HTMLDivElement[]): boolean {
     return cardsArr[0].textContent === cardsArr[1].textContent ? true : false;

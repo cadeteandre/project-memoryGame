@@ -1,6 +1,6 @@
 import './style.css'
 
-//* --------------- Selection HTML elements ---------------
+//* --------------- Selecting HTML elements ---------------
 const pairsClicked = document.querySelector('#pairsClicked') as HTMLParagraphElement;
 const pairsGuessed = document.querySelector('#pairsGuessed') as HTMLParagraphElement;
 const cards = document.querySelectorAll('.card') as NodeListOf<HTMLDivElement>;
@@ -11,6 +11,7 @@ const emojiArr: string[] = ['🥳', '😍', '😃', '😡', '🤢', '🥶', '�
 let cardsToCompare: HTMLDivElement[] = [];
 let guessCounter: number = 0;
 
+// mixing the emojis
 const shuffledArr = shuffleAllCards(emojiArr);
 for(let i: number = 0; i < shuffledArr.length; i++) {
     cards[i].innerHTML = `<div class="emoji">${shuffledArr[i]}</div>`;
@@ -32,8 +33,18 @@ function shuffleAllCards(arr: string[]): string[] {
 
     return doubleEmojiArr;    
 }
-console.log(shuffleAllCards(emojiArr));
+// console.log(shuffleAllCards(emojiArr));
 
+
+function displayScoreboard(pairGuessed: boolean): void {
+    if pairsClickedCounter++;
+    pairsClicked.textContent = 
+
+}
+
+
+
+// --------Button click event-----------
 cards.forEach((card: HTMLDivElement) => {
     card.addEventListener('click', () => {
         if(guessCounter < 2) {

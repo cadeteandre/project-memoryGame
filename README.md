@@ -18,7 +18,7 @@ Emoji Memory Game - ein unterhaltsames wie kinderfreundliches Gedächtnisspiel, 
 - Ein Webbrowser (z.B. Chrome, Firefox, Safari)
 
 - Hier geht's zum Spiel:
-https://scwdmemorygame.netlify.app/
+  https://scwdmemorygame.netlify.app/
 
 ### Spielanleitung
 
@@ -36,15 +36,19 @@ https://scwdmemorygame.netlify.app/
 - **Typescript**: Typescript, das die Logik des Spiels implementiert, einschließlich des Mischens der Karten und der Ereignissteuerung.
 
 ## Mitwirkende
-[André](https://github.com/cadeteandreEntwickler) und [Lamia](https://github.com/lamianicole) sind beide Schüler eines Web-Development-Bootcamps und haben in einem Partnerprojekt zusammen am Emoji Memory Project gearbeitet. 
+
+[André](https://github.com/cadeteandreEntwickler) und [Lamia](https://github.com/lamianicole) sind beide Schüler eines Web-Development-Bootcamps und haben in einem Partnerprojekt zusammen am Emoji Memory Project gearbeitet.
 Neu erlernte Fähigkeite in HTML, CSS und Typescript konnten hier umgesetzt werden.
 
-Dieses Spiel lässt sich auf Design-Ebene weiter ausbauen, und insbesondere in Bezug auf die Funktionen des Spiels lässt sich noch mehr aus diesem Spiel herausholen. 
+Dieses Spiel lässt sich auf Design-Ebene weiter ausbauen, und insbesondere in Bezug auf die Funktionen des Spiels lässt sich noch mehr aus diesem Spiel herausholen.
 
-# Ein Blick ins Spiel #
+# Einblick in den Workflow
+
+![screenshot](./src/assets/img/memory-game-flowchart.png)
+
+# Ein Blick ins Spiel
+
 ![screenshot](./src/assets/img/screenshot-memo-game.png)
-
-
 
 # Emoji Memory Game - English Version
 
@@ -66,9 +70,10 @@ Emoji Memory Game - a fun and kid-friendly memory game where players have to fin
 - A web browser (e.g. Chrome, Firefox, Safari)
 
 - Click here for the game:
-https://scwdmemorygame.netlify.app/
+  https://scwdmemorygame.netlify.app/
 
 ### How to play
+
 1. Open the game in the browser.
 2. Click on a card to reveal it.
 3. Try to find the matching pairs by clicking on two cards one after the other.
@@ -83,12 +88,16 @@ https://scwdmemorygame.netlify.app/
 - **Typescript**: Typescript that implements the game's logic, including card shuffling and event control.
 
 ## Contributors
-[André](https://github.com/cadeteandredeveloper) and [Lamia](https://github.com/lamianicole) are both students of a web development boot camp and worked together on the Emoji Memory Project in a partner project. 
+
+[André](https://github.com/cadeteandredeveloper) and [Lamia](https://github.com/lamianicole) are both students of a web development boot camp and worked together on the Emoji Memory Project in a partner project.
 Newly learned skills in HTML, CSS and Typescript could be implemented here.
 
-This game can be further expanded on a design level, and more can be achieved from this game, especially in terms of the game's features. 
+This game can be further expanded on a design level, and more can be achieved from this game, especially in terms of the game's features.
 
-# A look into the game #
+# Insight into the Workflow
+
+![screenshot](./src/assets/img/memory-game-flowchart.png)
+
+# A look into the game
+
 ![screenshot](./src/assets/img/screenshot-memo-game.png)
-
-

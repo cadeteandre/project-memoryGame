@@ -33,7 +33,6 @@ function shuffleAllCards(arr: string[]): string[] {
     return doubleEmojiArr;    
 }
 
-// --------Button click event-----------
 function compareCards(cardsArr: HTMLDivElement[]): boolean {
     return cardsArr[0].textContent === cardsArr[1].textContent ? true : false;
 }
@@ -41,14 +40,25 @@ function compareCards(cardsArr: HTMLDivElement[]): boolean {
 function displayScoreboard(pairGuessed: boolean): void {
     if(pairGuessed) {
         pairsGuessedCounter++;
-        if(pairs)
+        if(pairsGuessedCounter === 12) {
+            scoreboard.style.flexDirection = 'column';
+            scoreboard.style.alignItems = 'center';
+            scoreboard.innerHTML = `
+            <h3>Congratulations, you won!</h3>
+            <p>Attempts: ${pairsClicledCounter}</p>
+            `;
+            const button = document.createElement('button') as HTMLButtonElement;
+            button.textContent = 'Play again!';
+            button.classList.add('restart__btn');
+            button.addEventListener('click', () => location.reload());
+            scoreboard.appendChild(button);
+        }
     } else {
         pairsClicledCounter++;
     }
     pairsClicked.textContent = `Pairs clicked: ${pairsClicledCounter}`;
     pairsGuessed.textContent = `Pairs guessed: ${pairsGuessedCounter}`;
 }
-// displayScoreboard(true);
 
 //* --------------- Button click events ---------------
 cards.forEach((card: HTMLDivElement) => {

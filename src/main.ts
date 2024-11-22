@@ -1,6 +1,7 @@
 import './style.css'
 
 //* --------------- Selecting HTML elements ---------------
+const scoreboard = document.querySelector('.scoreboard') as HTMLDivElement;
 const pairsClicked = document.querySelector('#pairsClicked') as HTMLParagraphElement;
 const pairsGuessed = document.querySelector('#pairsGuessed') as HTMLParagraphElement;
 const cards = document.querySelectorAll('.card') as NodeListOf<HTMLDivElement>;
@@ -47,6 +48,7 @@ function displayScoreboard(pairGuessed: boolean): void {
     pairsClicked.textContent = `Pairs clicked: ${pairsClicledCounter}`;
     pairsGuessed.textContent = `Pairs guessed: ${pairsGuessedCounter}`;
 }
+// displayScoreboard(true);
 
 //* --------------- Button click events ---------------
 cards.forEach((card: HTMLDivElement) => {

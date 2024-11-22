@@ -7,6 +7,7 @@ const cards = document.querySelectorAll('.card') as NodeListOf<HTMLDivElement>;
 const card = document.querySelector('.card') as HTMLDivElement;
 
 const emojiArr: string[] = ['🥳', '😍', '😃', '😡', '🤢', '🥶', '😎', '😴', '🤕', '🤠', '🤣', '😱'];
+
 let cardsToCompare: HTMLDivElement[] = [];
 let guessCounter: number = 0;
 
@@ -28,7 +29,8 @@ function shuffleAllCards(arr: string[]): string[] {
         const arrNum = Math.floor(Math.random()* (i+1));
         [doubleEmojiArr[i], doubleEmojiArr[arrNum]] = [doubleEmojiArr[arrNum], doubleEmojiArr[i]]
     } 
-    return doubleEmojiArr;
+
+    return doubleEmojiArr;    
 }
 console.log(shuffleAllCards(emojiArr));
 
@@ -55,6 +57,3 @@ cards.forEach((card: HTMLDivElement) => {
         }
     })
 })
-
-
- 

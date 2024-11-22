@@ -1,7 +1,16 @@
+@font-face {
+  font-family: "ComicNeue-Bold";
+  src: url("src/assets/fonts/ComicNeue-Bold.ttf");
+}
+
 body {
-  margin: 0;  display: flex;
+  margin: 0;  
+  display: flex;
   min-width: 320px;
   min-height: 100vh;
+  font-family: "ComicNeue-Bold";
+  color: black;
+  background: linear-gradient(to bottom, #87ceeb, #fff) no-repeat;
 }
 
 #app {
@@ -19,10 +28,26 @@ header {
 
 .scoreboard {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 50vw;
+  border: 2px solid #000;
+  border-radius: 20px; 
+  padding: 10px 40px 10px 30;
+  /* gap: 20px; */
 }
 
+h1 {
+  font-size: 38px;
+  font-weight: bold; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 4px;
+  padding-top: 20px
+}
+
+#pairsClicked, #pairsGuessed { 
+  font-size: 18px; 
+  margin-bottom: 20px; 
+}
 
 #playground {
   display: flex;
@@ -32,18 +57,25 @@ header {
   max-width: 835px;
   min-width: 463px;
   border: 2px solid #000;
+  border-radius: 30px; 
   padding: 20px;
+  background-image: url("src/assets/img/IMG_2224.jpeg");
+  background-size: cover; background-position: center; background-repeat: no-repeat;
 }
 
 .card {
   width: 100px;
   height: 100px;
-  background-color: aquamarine;
-  border: 1px solid red;
+  border: 6px solid #ddd; 
+  border-radius: 30px; 
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
   display: flex;
   place-items: center;
   justify-content: center;
   font-size: 4rem;
+  background-color: #0647d5;
+  cursor: pointer; 
+  transition: transform 0.3s;
 }
 
 .hide__card {

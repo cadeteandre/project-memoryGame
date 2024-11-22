@@ -36,11 +36,11 @@ function shuffleAllCards(arr: string[]): string[] {
 // console.log(shuffleAllCards(emojiArr));
 
 
-function displayScoreboard(pairGuessed: boolean): void {
-    if pairsClickedCounter++;
-    pairsClicked.textContent = 
+// function displayScoreboard(pairGuessed: boolean): void {
+//     if pairsClickedCounter++;
+//     pairsClicked.textContent = 
 
-}
+// }
 
 
 

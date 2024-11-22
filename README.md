@@ -17,7 +17,7 @@ Emoji Memory Game - ein unterhaltsames wie kinderfreundliches Gedächtnisspiel, 
 
 - Ein Webbrowser (z.B. Chrome, Firefox, Safari)
 
-- Hier gehts zum Spiel:
+- Hier geht's zum Spiel:
 https://scwdmemorygame.netlify.app/
 
 ### Spielanleitung

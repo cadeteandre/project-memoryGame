@@ -16,7 +16,7 @@ let pairsGuessedCounter: number = 0;
 
 //* --------------- Mixing the emojis ---------------
 const shuffledArr = shuffleAllCards(emojiArr);
-for(let i: number = 0; i < shuffledArr.length; i++) {
+for( let i: number = 0; i < shuffledArr.length; i++ ) {
     cards[i].innerHTML = `<div class="emoji">${shuffledArr[i]}</div>`;
     const cardChild = cards[i].firstElementChild as HTMLDivElement;
     cardChild.classList.add('hide__card');
@@ -25,7 +25,7 @@ for(let i: number = 0; i < shuffledArr.length; i++) {
 //* --------------- Declaring functions ---------------
 function shuffleAllCards(arr: string[]): string[] {
     const doubleEmojiArr = arr.concat(arr);
-    for (let i = doubleEmojiArr.length - 1; i > 0; i--) {
+    for ( let i = doubleEmojiArr.length - 1; i > 0; i-- ) {
         const arrNum = Math.floor(Math.random()* (i+1));
         [doubleEmojiArr[i], doubleEmojiArr[arrNum]] = [doubleEmojiArr[arrNum], doubleEmojiArr[i]];
     } 
@@ -38,9 +38,9 @@ function compareCards(cardsArr: HTMLDivElement[]): boolean {
 }
 
 function displayScoreboard(pairGuessed: boolean): void {
-    if(pairGuessed) {
+    if( pairGuessed ) {
         pairsGuessedCounter++;
-        if(pairsGuessedCounter === 12) {
+        if( pairsGuessedCounter === 12 ) {
             scoreboard.style.flexDirection = 'column';
             scoreboard.style.alignItems = 'center';
             scoreboard.innerHTML = `
@@ -63,26 +63,33 @@ function displayScoreboard(pairGuessed: boolean): void {
 //* --------------- Button click events ---------------
 cards.forEach((card: HTMLDivElement) => {
     card.addEventListener('click', () => {
-        if(guessCounter < 2) {
+        let isNewTurn: boolean = guessCounter < 2;
+        let compareResult: boolean = false; 
+
+        if ( isNewTurn && !card.firstElementChild?.classList.contains('hide__card') ) return;
+
+        if ( isNewTurn ) {
             const cardChild = card.firstElementChild as HTMLDivElement;
             cardChild.classList.toggle('hide__card');
             cardsToCompare.push(cardChild);
             guessCounter++;
-            if(guessCounter === 2) {
-                const compareResult: boolean = compareCards(cardsToCompare);
-                if(compareResult) {
-                    displayScoreboard(true);
-                    cardsToCompare = [];
-                    guessCounter = 0;
-                } else {
-                    displayScoreboard(false);
-                    setTimeout(() => {
-                        cardsToCompare.forEach((card) => card.classList.toggle('hide__card'));
-                        cardsToCompare = [];
-                        guessCounter = 0;
-                    }, 1000)
-                }
-            }
+        }
+
+        if ( isNewTurn && guessCounter === 2 ) { compareResult = compareCards(cardsToCompare); }
+
+        if( compareResult ) {
+            displayScoreboard(true);
+            cardsToCompare = [];
+            guessCounter = 0;
+        } 
+
+        if ( !compareResult && guessCounter === 2 ) {
+            displayScoreboard(false);
+            setTimeout(() => {
+                cardsToCompare.forEach((card) => card.classList.toggle('hide__card'));
+                cardsToCompare = [];
+                guessCounter = 0;
+            }, 1000)
         }
     })
-})
+});
